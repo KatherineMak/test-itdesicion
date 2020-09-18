@@ -1,0 +1,70 @@
+.header
+  display: flex
+  justify-content: space-between
+  margin-right: 1rem
+  padding-left: 2.25rem
+  &__button
+    background-color: transparent
+    border: 1px solid #E5E5E5
+    border-radius: 0.5rem
+    font-size: 	0.9375rem
+    line-height: 1.125rem
+    height: 2.75rem
+    padding: 0 1.125rem
+    white-space: nowrap
+    &--large
+      margin: 0 0.25rem
+      padding: 0 0.9375rem
+  &__button-icon
+    padding-right: 0.2rem
+  &__form
+    width: 38%
+    margin-right: 3rem
+    margin-left: 1rem
+  &__input
+    border: 1px solid #E5E5E5
+    box-sizing: border-box
+    border-radius: 0.5rem
+    height: 2.75rem
+    width: 100%
+    padding: 0.8125rem 	1.875rem 0.8125rem 1rem
+    background-image: url("../img/icons/magnifier.svg")
+    background-repeat: no-repeat
+    background-position: calc(100% - 0.9rem) 50%
+    &::placeholder
+      color: #929292
+  &__container
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    background-color: #EEEEEE
+    border-radius: 0.5rem
+    width: 37%
+  &__select
+    height: 2.75rem
+    padding: 0 1.25rem 0 2.0625rem
+    background-image: url("../img/icons/filter.svg")
+    background-position: 0.75rem center
+    background-repeat: no-repeat
+  &__profile-wrapper
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-right: 0.4rem
+    &:before
+      content: ""
+      display: block
+      position: absolute
+      left: -2px
+      top: -2px
+      background-image: url("../img/favorite.png")
+      background-repeat: no-repeat
+      width: 0.75rem
+      height: 0.75rem
+  &__button-add
+    height: 1.875rem
+    width: 1.875rem
+    border-radius: 50%
+    background-color: #FBFBFB
+    border: none

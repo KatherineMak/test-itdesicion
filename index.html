@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Test ITDesicion</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel='stylesheet' href='dist/style.css'>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    </head>
+    <body class="page">
+        <main class="page__main">
+            <header class="header">
+                <button class="header__button">
+                    <svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 1L2 5L6 9" stroke="#2E2E2E" stroke-width="2"/>
+                    </svg>
+                </button>
+                <button class="header__button header__button--large">
+                    <svg class="header__button-icon" width="14" height="14" viewBox="0 0 14 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4 6C3.44772 6 3 5.51785 3 4.92308L3 4C2.44772 4 2 4.44772 2 5V11C2 11.5523 2.44772 12 3 12H11C11.5523 12 12 11.5523 12 11V5C12 4.44772 11.5523 4 11 4V4.92308C11 5.51785 10.5523 6 10 6C9.44771 6 9 5.51785 9 4.92308V4H5V4.92308C5 5.51785 4.55228 6 4 6ZM9 2H5V1.07692C5 0.482155 4.55228 0 4 0C3.44772 0 3 0.482155 3 1.07692L3 2C1.34315 2 0 3.34315 0 5V11C0 12.6569 1.34315 14 3 14H11C12.6569 14 14 12.6569 14 11V5C14 3.34315 12.6569 2 11 2V1.07692C11 0.482155 10.5523 0 10 0C9.44771 0 9 0.482155 9 1.07692V2Z" />
+                    </svg>
+                    Июль
+                </button>
+                <button class="header__button header__button--next">
+                    <svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 9L5 5L1 1" stroke="#2E2E2E" stroke-width="2"/>
+                    </svg>
+                </button>
+                <form class="header__form" action="">
+                    <label for="keywords">
+                        <input class="header__input" id="keywords" type="text" name="keywords" placeholder="Поиск по проекту, контрагенту или счёту">
+                    </label>
+                </form>
+                <div class="header__container">
+                    <label class="select-wrapper" for="filter">
+                        <select class="select header__select" id="filter">
+                            <option>Фильтр</option>
+                            <option>Фильтр 1</option>
+                        </select>
+                    </label>
+                    <div class="header__profile-wrapper">
+                        <img class="header__profile" src="src/img/profile-1.png"/>
+                    </div>
+                    <div class="header__profile-wrapper">
+                        <img class="header__profile" src="src/img/profile-2.png"/>
+                    </div>
+                    <div class="header__profile-wrapper">
+                        <img class="header__profile" src="src/img/profile-3.png"/>
+                    </div>
+                    <div class="header__profile-wrapper">
+                        <img class="header__profile" src="src/img/profile-4.png"/>
+                    </div>
+                    <button class="header__button-add">
+                        <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M4 9.23077C4 9.6556 4.44772 10 5 10C5.55229 10 6 9.6556 6 9.23077V6H9.23077C9.6556 6 10 5.55228 10 5C10 4.44772 9.6556 4 9.23077 4H6V0.769231C6 0.344396 5.55228 0 5 0C4.44771 0 4 0.344396 4 0.769231L4 4H0.769231C0.344396 4 0 4.44772 0 5C0 5.55228 0.344396 6 0.769231 6H4L4 9.23077Z" fill="#B2B2B2"/>
+                        </svg>
+                    </button>
+                </div>
+            </header>
+            <svg class="graph" width="798" height="92" viewBox="0 0 798 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="796" height="90">
+                    <rect x="1" y="1" width="796" height="90" rx="8" fill="#F2F2F2"/>
+                </mask>
+                <g mask="url(#mask0)">
+                    <rect x="1" y="1" width="796" height="90" rx="8" fill="#F5F5F5"/>
+                    <rect x="1" y="67" width="769" height="28" rx="8" fill="#FFD3C2"/>
+                    <path d="M-168.75 49H-191C-195.418 49 -199 52.5817 -199 57V88.5C-199 92.9183 -195.418 96.5 -191 96.5H847C851.418 96.5 855 92.9183 855 88.5V64.7834C855 60.3521 851.398 56.765 846.967 56.7835L833.033 56.8415C828.602 56.86 825 53.2729 825 48.8416V25C825 20.5817 821.418 17 817 17H797.5C793.082 17 789.5 20.5817 789.5 25V43.5C789.5 47.9183 785.918 51.5 781.5 51.5H758C756.619 51.5 755.5 52.6193 755.5 54C755.5 55.3807 754.381 56.5 753 56.5H726.5C723.739 56.5 721.5 58.7386 721.5 61.5C721.5 64.2614 719.261 66.5 716.5 66.5H690.75C688.955 66.5 687.5 65.0449 687.5 63.25C687.5 61.4551 686.045 60 684.25 60H658.75C655.851 60 653.5 57.6495 653.5 54.75C653.5 51.8505 651.149 49.5 648.25 49.5H626.5C622.634 49.5 619.5 52.634 619.5 56.5C619.5 60.366 616.366 63.5 612.5 63.5H593.5C589.082 63.5 585.5 67.0817 585.5 71.5V76C585.5 80.4183 581.918 84 577.5 84H557.75C554.298 84 551.5 81.2018 551.5 77.75C551.5 74.2982 548.702 71.5 545.25 71.5H521.75C519.403 71.5 517.5 73.4028 517.5 75.75C517.5 78.0972 515.597 80 513.25 80H491.5C487.082 80 483.5 76.4183 483.5 72V52.5C483.5 48.0817 479.918 44.5 475.5 44.5H457.5C453.082 44.5 449.5 48.0817 449.5 52.5V69C449.5 73.4183 445.918 77 441.5 77H420.25C417.627 77 415.5 74.8734 415.5 72.25C415.5 69.6266 413.373 67.5 410.75 67.5H389.5C385.082 67.5 381.5 63.9183 381.5 59.5V33.5C381.5 29.0817 377.918 25.5 373.5 25.5H350.75C348.955 25.5 347.5 26.9551 347.5 28.75C347.5 30.5449 346.045 32 344.25 32H317.75C315.403 32 313.5 30.0972 313.5 27.75C313.5 25.4028 311.597 23.5 309.25 23.5H287.5C283.082 23.5 279.5 19.9183 279.5 15.5V15C279.5 10.5817 275.918 7 271.5 7H254C249.582 7 246 10.5817 246 15V46.5C246 50.9183 242.418 54.5 238 54.5H219.5C215.082 54.5 211.5 50.9183 211.5 46.5V40C211.5 35.5817 207.918 32 203.5 32H180.75C178.955 32 177.5 33.4551 177.5 35.25C177.5 37.0449 176.045 38.5 174.25 38.5H151C146.858 38.5 143.5 41.8579 143.5 46C143.5 50.1421 140.142 53.5 136 53.5H113.5C111.291 53.5 109.5 55.2909 109.5 57.5C109.5 59.7091 107.709 61.5 105.5 61.5H78.5C76.8431 61.5 75.5 60.1569 75.5 58.5C75.5 56.8431 74.1569 55.5 72.5 55.5H44.75C42.9551 55.5 41.5 54.0449 41.5 52.25C41.5 50.4551 40.0449 49 38.25 49H15.5C11.0817 49 7.5 45.4183 7.5 41V28.5C7.5 24.0817 3.91827 20.5 -0.5 20.5H-18.5C-22.9183 20.5 -26.5 24.0817 -26.5 28.5V59C-26.5 63.4183 -30.0817 67 -34.5 67H-57.75C-59.2688 67 -60.5 65.7688 -60.5 64.25C-60.5 62.7312 -61.7312 61.5 -63.25 61.5H-91.5C-93.1569 61.5 -94.5 62.8431 -94.5 64.5C-94.5 66.1569 -95.8431 67.5 -97.5 67.5H-120.5C-124.918 67.5 -128.5 63.9183 -128.5 59.5V48.5C-128.5 44.0817 -132.082 40.5 -136.5 40.5H-160.25C-162.597 40.5 -164.5 42.4028 -164.5 44.75C-164.5 47.0972 -166.403 49 -168.75 49Z" fill="#D7EAE3"/>
+                    <path d="M-166.75 49H-191C-195.418 49 -199 52.5817 -199 57V88.5C-199 92.9183 -195.418 96.5 -191 96.5H847C851.418 96.5 855 92.9183 855 88.5V64.75C855 60.3317 851.418 56.75 847 56.75H833C828.582 56.75 825 53.1683 825 48.75V25C825 20.5817 821.418 17 817 17H797.5C793.082 17 789.5 20.5817 789.5 25V43.5C789.5 47.9183 785.918 51.5 781.5 51.5H758C756.619 51.5 755.5 52.6193 755.5 54C755.5 55.3807 754.381 56.5 753 56.5H726.5C723.739 56.5 721.5 58.7386 721.5 61.5C721.5 64.2614 719.261 66.5 716.5 66.5H690.75C688.955 66.5 687.5 65.0449 687.5 63.25C687.5 61.4551 686.045 60 684.25 60H658.75C655.851 60 653.5 57.6495 653.5 54.75C653.5 51.8505 651.149 49.5 648.25 49.5H626.5C622.634 49.5 619.5 52.634 619.5 56.5C619.5 60.366 616.366 63.5 612.5 63.5H593.5C589.082 63.5 585.5 67.0817 585.5 71.5V76C585.5 80.4183 581.918 84 577.5 84H557.75C554.298 84 551.5 81.2018 551.5 77.75C551.5 74.2982 548.702 71.5 545.25 71.5H521.75C519.403 71.5 517.5 73.4028 517.5 75.75C517.5 78.0972 515.597 80 513.25 80H491.5C487.082 80 483.5 76.4183 483.5 72V52.5C483.5 48.0817 479.918 44.5 475.5 44.5H457.5C453.082 44.5 449.5 48.0817 449.5 52.5V69C449.5 73.4183 445.918 77 441.5 77H420.25C417.627 77 415.5 74.8734 415.5 72.25C415.5 69.6266 413.373 67.5 410.75 67.5H389.5C385.082 67.5 381.5 63.9183 381.5 59.5V33.5C381.5 29.0817 377.918 25.5 373.5 25.5H350.75C348.955 25.5 347.5 26.9551 347.5 28.75C347.5 30.5449 346.045 32 344.25 32H317.75C315.403 32 313.5 30.0972 313.5 27.75C313.5 25.4028 311.597 23.5 309.25 23.5H287.5C283.082 23.5 279.5 19.9183 279.5 15.5V15C279.5 10.5817 275.918 7 271.5 7H254C249.582 7 246 10.5817 246 15V46.5C246 50.9183 242.418 54.5 238 54.5H219.5C215.082 54.5 211.5 50.9183 211.5 46.5V40C211.5 35.5817 207.918 32 203.5 32H180.75C178.955 32 177.5 33.4551 177.5 35.25C177.5 37.0449 176.045 38.5 174.25 38.5H151C146.858 38.5 143.5 41.8579 143.5 46C143.5 50.1421 140.142 53.5 136 53.5H113.5C111.291 53.5 109.5 55.2909 109.5 57.5C109.5 59.7091 107.709 61.5 105.5 61.5H78.5C76.8431 61.5 75.5 60.1569 75.5 58.5C75.5 56.8431 74.1569 55.5 72.5 55.5H44.75C42.9551 55.5 41.5 54.0449 41.5 52.25C41.5 50.4551 40.0449 49 38.25 49H15.5C11.0817 49 7.5 45.4183 7.5 41V28.5C7.5 24.0817 3.91827 20.5 -0.5 20.5H-18.5C-22.9183 20.5 -26.5 24.0817 -26.5 28.5V60C-26.5 64.4183 -30.0817 68 -34.5 68H-57.25C-59.0449 68 -60.5 66.5449 -60.5 64.75C-60.5 62.9551 -61.9551 61.5 -63.75 61.5H-91.5C-93.1569 61.5 -94.5 62.8431 -94.5 64.5C-94.5 66.1569 -95.8431 67.5 -97.5 67.5H-120.5C-124.918 67.5 -128.5 63.9183 -128.5 59.5V48.5C-128.5 44.0817 -132.082 40.5 -136.5 40.5H-158.25C-160.597 40.5 -162.5 42.4028 -162.5 44.75C-162.5 47.0972 -164.403 49 -166.75 49Z" stroke="#167951"/>
+                    <rect opacity="0.5" x="211" width="586" height="91" fill="#FBFBFB"/>
+                    <path opacity="0.7" d="M219.972 37.072C219.324 37.072 218.744 36.9 218.232 36.556C217.728 36.212 217.332 35.72 217.044 35.08C216.764 34.432 216.624 33.672 216.624 32.8C216.624 31.928 216.764 31.172 217.044 30.532C217.332 29.884 217.728 29.388 218.232 29.044C218.744 28.7 219.324 28.528 219.972 28.528C220.62 28.528 221.196 28.7 221.7 29.044C222.212 29.388 222.612 29.884 222.9 30.532C223.188 31.172 223.332 31.928 223.332 32.8C223.332 33.672 223.188 34.432 222.9 35.08C222.612 35.72 222.212 36.212 221.7 36.556C221.196 36.9 220.62 37.072 219.972 37.072ZM219.972 36.28C220.46 36.28 220.888 36.144 221.256 35.872C221.632 35.6 221.924 35.204 222.132 34.684C222.34 34.164 222.444 33.536 222.444 32.8C222.444 32.064 222.34 31.436 222.132 30.916C221.924 30.396 221.632 30 221.256 29.728C220.888 29.456 220.46 29.32 219.972 29.32C219.484 29.32 219.052 29.456 218.676 29.728C218.308 30 218.02 30.396 217.812 30.916C217.604 31.436 217.5 32.064 217.5 32.8C217.5 33.536 217.604 34.164 217.812 34.684C218.02 35.204 218.308 35.6 218.676 35.872C219.052 36.144 219.484 36.28 219.972 36.28ZM224.968 37.06C224.792 37.06 224.64 36.996 224.512 36.868C224.392 36.74 224.332 36.584 224.332 36.4C224.332 36.216 224.392 36.064 224.512 35.944C224.64 35.816 224.792 35.752 224.968 35.752C225.144 35.752 225.296 35.816 225.424 35.944C225.552 36.064 225.616 36.216 225.616 36.4C225.616 36.584 225.552 36.74 225.424 36.868C225.296 36.996 225.144 37.06 224.968 37.06ZM232.531 28.6V29.212L229.015 37H228.079L231.535 29.368H227.215V30.94H226.363V28.6H232.531ZM243.065 28.6V37H242.213V30.28L238.913 35.932H238.493L235.193 30.316V37H234.341V28.6H235.073L238.721 34.828L242.333 28.6H243.065Z" fill="#2E2E2E"/>
+                    <circle cx="211.5" cy="39.5" r="2.5" fill="#808080"/>
+                    <path opacity="0.7" d="M218.952 75.6V84H218.088V76.368H216.108V75.6H218.952ZM224.188 84.072C223.54 84.072 222.96 83.9 222.448 83.556C221.944 83.212 221.548 82.72 221.26 82.08C220.98 81.432 220.84 80.672 220.84 79.8C220.84 78.928 220.98 78.172 221.26 77.532C221.548 76.884 221.944 76.388 222.448 76.044C222.96 75.7 223.54 75.528 224.188 75.528C224.836 75.528 225.412 75.7 225.916 76.044C226.428 76.388 226.828 76.884 227.116 77.532C227.404 78.172 227.548 78.928 227.548 79.8C227.548 80.672 227.404 81.432 227.116 82.08C226.828 82.72 226.428 83.212 225.916 83.556C225.412 83.9 224.836 84.072 224.188 84.072ZM224.188 83.28C224.676 83.28 225.104 83.144 225.472 82.872C225.848 82.6 226.14 82.204 226.348 81.684C226.556 81.164 226.66 80.536 226.66 79.8C226.66 79.064 226.556 78.436 226.348 77.916C226.14 77.396 225.848 77 225.472 76.728C225.104 76.456 224.676 76.32 224.188 76.32C223.7 76.32 223.268 76.456 222.892 76.728C222.524 77 222.236 77.396 222.028 77.916C221.82 78.436 221.716 79.064 221.716 79.8C221.716 80.536 221.82 81.164 222.028 81.684C222.236 82.204 222.524 82.6 222.892 82.872C223.268 83.144 223.7 83.28 224.188 83.28ZM232.274 77.688H233.126V82.704L237.338 77.688H238.094V84H237.242V78.984L233.042 84H232.274V77.688ZM245.84 77.64C246.432 77.64 246.964 77.776 247.436 78.048C247.916 78.32 248.292 78.7 248.564 79.188C248.836 79.676 248.972 80.228 248.972 80.844C248.972 81.46 248.836 82.012 248.564 82.5C248.292 82.988 247.916 83.372 247.436 83.652C246.964 83.924 246.432 84.06 245.84 84.06C245.28 84.06 244.772 83.94 244.316 83.7C243.86 83.452 243.488 83.112 243.2 82.68C242.92 82.248 242.756 81.752 242.708 81.192H241.268V84H240.416V77.688H241.268V80.412H242.72C242.784 79.868 242.956 79.388 243.236 78.972C243.524 78.548 243.892 78.22 244.34 77.988C244.788 77.756 245.288 77.64 245.84 77.64ZM245.84 83.316C246.272 83.316 246.66 83.212 247.004 83.004C247.356 82.796 247.632 82.504 247.832 82.128C248.032 81.752 248.132 81.324 248.132 80.844C248.132 80.364 248.032 79.936 247.832 79.56C247.632 79.184 247.356 78.896 247.004 78.696C246.66 78.488 246.272 78.384 245.84 78.384C245.408 78.384 245.016 78.488 244.664 78.696C244.32 78.896 244.048 79.184 243.848 79.56C243.648 79.936 243.548 80.364 243.548 80.844C243.548 81.324 243.648 81.752 243.848 82.128C244.048 82.504 244.32 82.796 244.664 83.004C245.016 83.212 245.408 83.316 245.84 83.316ZM255.803 77.688V84H254.951V78.444H251.927L251.843 80.004C251.779 81.316 251.627 82.324 251.387 83.028C251.147 83.732 250.719 84.084 250.103 84.084C249.935 84.084 249.731 84.052 249.491 83.988L249.551 83.256C249.695 83.288 249.795 83.304 249.851 83.304C250.179 83.304 250.427 83.152 250.595 82.848C250.763 82.544 250.875 82.168 250.931 81.72C250.987 81.272 251.035 80.68 251.075 79.944L251.183 77.688H255.803ZM262.953 77.688V84H262.173V81.912H260.193H259.953L258.489 84H257.565L259.137 81.792C258.649 81.656 258.273 81.424 258.009 81.096C257.745 80.768 257.613 80.352 257.613 79.848C257.613 79.144 257.853 78.608 258.333 78.24C258.813 77.872 259.469 77.688 260.301 77.688H262.953ZM258.477 79.872C258.477 80.808 259.073 81.276 260.265 81.276H262.173V78.444H260.325C259.093 78.444 258.477 78.92 258.477 79.872Z" fill="#2E2E2E"/>
+                    <rect x="211" width="1" height="91" rx="0.5" fill="#808080"/>
+                </g>
+                <rect x="0.5" y="0.5" width="797" height="91" rx="8.5" stroke="#EEEEEE"/>
+            </svg>
+
+            <div class="filters">
+                <div class="filters__container filters__container--left">
+                    <div class="filters__group filters__group--left">
+                        <label class="filters__label" for="filters">Группировать:</label>
+                        <div class="filters__select-wrapper select-wrapper">
+                            <select class="select filters__select" id="filters">
+                                <option>По дате</option>
+                                <option>Фильтр 1</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="filters__group">
+                        <p class="filters__label">
+                            Вид:
+                        </p>
+                        <div class="radio">
+                            <input class="radio__input" id="view-list" type="radio" name="view" value="list" checked>
+                            <label class="filters__radio-view" for="view-list">
+                                <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1 0.0025117C0.441133 0.0391364 0 0.471732 0 1C0 1.52827 0.441133 1.96086 1 1.99749C0.974593 1.99915 0.948942 2 0.923078 2H1.07692C1.05106 2 1.02541 1.99915 1 1.99749C1.55887 1.96086 2 1.52827 2 1C2 0.471732 1.55887 0.0391364 1 0.0025117ZM1 0.0025117C1.02541 0.000846641 1.05106 0 1.07692 0H0.923078C0.948942 0 0.974593 0.000846641 1 0.0025117ZM5.07692 0C4.48215 0 4 0.447715 4 1C4 1.55228 4.48215 2 5.07692 2H12.9231C13.5178 2 14 1.55228 14 1C14 0.447715 13.5178 0 12.9231 0H5.07692ZM0 6C0 5.47173 0.441133 5.03914 1 5.00251C1.55887 5.03914 2 5.47173 2 6C2 6.52827 1.55887 6.96086 1 6.99749C0.441133 6.96086 0 6.52827 0 6ZM1 6.99749C1.02541 6.99915 1.05106 7 1.07692 7H0.923078C0.948942 7 0.974593 6.99915 1 6.99749ZM1 5.00251C0.974593 5.00085 0.948942 5 0.923078 5H1.07692C1.05106 5 1.02541 5.00085 1 5.00251ZM1 10.0025C0.441133 10.0391 0 10.4717 0 11C0 11.5283 0.441133 11.9609 1 11.9975C0.974593 11.9992 0.948942 12 0.923078 12H1.07692C1.05106 12 1.02541 11.9992 1 11.9975C1.55887 11.9609 2 11.5283 2 11C2 10.4717 1.55887 10.0391 1 10.0025ZM1 10.0025C1.02541 10.0008 1.05106 10 1.07692 10H0.923078C0.948942 10 0.974593 10.0008 1 10.0025ZM4 6C4 5.44772 4.48216 5 5.07692 5H12.9231C13.5178 5 14 5.44772 14 6C14 6.55228 13.5178 7 12.9231 7H5.07692C4.48216 7 4 6.55228 4 6ZM5.07692 10C4.48215 10 4 10.4477 4 11C4 11.5523 4.48215 12 5.07692 12H12.9231C13.5178 12 14 11.5523 14 11C14 10.4477 13.5178 10 12.9231 10H5.07692Z" fill="#2E2E2E"/>
+                                </svg>
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <input class="radio__input" id="view-calendar" type="radio" name="view" value="calendar">
+                            <label class="filters__radio-view" for="view-calendar">
+                                <svg  width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4 6C3.44772 6 3 5.51785 3 4.92308L3 4C2.44772 4 2 4.44772 2 5V11C2 11.5523 2.44772 12 3 12H11C11.5523 12 12 11.5523 12 11V5C12 4.44772 11.5523 4 11 4V4.92308C11 5.51785 10.5523 6 10 6C9.44771 6 9 5.51785 9 4.92308V4H5V4.92308C5 5.51785 4.55228 6 4 6ZM9 2H5V1.07692C5 0.482155 4.55228 0 4 0C3.44772 0 3 0.482155 3 1.07692L3 2C1.34315 2 0 3.34315 0 5V11C0 12.6569 1.34315 14 3 14H11C12.6569 14 14 12.6569 14 11V5C14 3.34315 12.6569 2 11 2V1.07692C11 0.482155 10.5523 0 10 0C9.44771 0 9 0.482155 9 1.07692V2Z" fill="#2E2E2E"/>
+                                </svg>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="filters__container filters__container--right">
+                    <div class="radio">
+                        <input class="radio__input" id="all-operations" type="radio" name="operations" value="Все операции" checked>
+                        <label class="filters__radio-operations" for="all-operations">Все операции</label>
+                    </div>
+                    <div class="radio">
+                        <input class="radio__input" id="future-operations" type="radio" name="operations" value="Будущие">
+                        <label class="filters__radio-operations" for="future-operations">Будущие</label>
+                    </div>
+                    <div class="radio">
+                        <input class="radio__input" id="past-operations" type="radio" name="operations" value="Прошедшие">
+                        <label class="filters__radio-operations" for="past-operations">Прошедшие</label>
+                    </div>
+                </div>
+            </div>
+            <div class="day">
+                <div class="day__wrapper">
+                    <h2 class="day__caption">Сегодня, 10 июля</h2>
+                    <button class="day__button day__button--primary">
+                        Добавить
+                        <span class="day__button-icon">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4 9.23077C4 9.6556 4.44772 10 5 10C5.55229 10 6 9.6556 6 9.23077V6H9.23077C9.6556 6 10 5.55228 10 5C10 4.44772 9.6556 4 9.23077 4H6V0.769231C6 0.344396 5.55228 0 5 0C4.44771 0 4 0.344396 4 0.769231L4 4H0.769231C0.344396 4 0 4.44772 0 5C0 5.55228 0.344396 6 0.769231 6H4L4 9.23077Z" fill="#B2B2B2"/>
+</svg>
+                        </span>
+                    </button>
+                </div>
+                <hr class="hr day__hr">
+                <table cellpadding="0" cellspacing="0">
+                    <tr class="operation">
+                        <td class="operation__td operation__icon"><svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="30" height="30" rx="8" fill="#D7EAE3"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M18.3123 12.2372C18.6895 12.6058 18.6895 13.2127 18.3123 13.5814C17.9471 13.9383 17.3637 13.9383 16.9985 13.5814L15.9508 12.5574L15.9508 20.0492C15.9508 20.5743 15.5251 21 15 21C14.4749 21 14.0492 20.5743 14.0492 20.0492L14.0492 12.5574L13.0015 13.5814C12.6363 13.9383 12.0529 13.9383 11.6877 13.5814C11.3105 13.2127 11.3105 12.6058 11.6877 12.2372L14.301 9.6831C14.6896 9.30333 15.3104 9.30332 15.699 9.6831L18.3123 12.2372Z" fill="#167951"/>
+                        </svg>
+                        </td>
+                        <td class="operation__td operation__client">
+                            <p class="operation__text">ИП Бирюков Михаил Алексеевич</p>
+                            <p class="operation__desc operation__desc--light">
+                                Со счёта:
+                                <span class="operation__desc operation__desc--black">
+                                    monobank
+                                </span>
+                            </p>
+                        </td>
+                        <td class="operation__td operation__name">
+                            <p class="operation__text">Сайт Volkswagen</p>
+                            <p class="operation__desc operation__desc--light">
+                                Продвижение
+                            </p>
+                        </td>
+                        <td class="operation__td operation__comment">
+                            <p class="operation__text operation__text--underline">Оплата за продвижение Google Adwords июнь-июль
+                            </p>
+                        </td>
+                        <td class="operation__td operation__status">
+                            <div class="status">
+                                <p class="status__text">
+                                    Оплачено
+                                </p>
+                            </div>
+                        </td>
+                        <td class="operation__td operation__sum">
+                            <p class="sum sum--income">
+                                +21 239 ₴
+                            </p>
+                        </td>
+                    </tr>
+                    <tr class="operation">
+                        <td class=" operation__td operation__icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="-1.90735e-06" width="30" height="30" rx="8" fill="#FFD3C2"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.6877 17.7628C11.3105 17.3942 11.3105 16.7873 11.6877 16.4186C12.0529 16.0617 12.6363 16.0617 13.0015 16.4186L14.0492 17.4426L14.0492 9.95077C14.0492 9.42568 14.4749 9 15 9C15.5251 9 15.9508 9.42567 15.9508 9.95077L15.9508 17.4426L16.9985 16.4186C17.3637 16.0617 17.9471 16.0617 18.3123 16.4186C18.6895 16.7873 18.6895 17.3942 18.3123 17.7628L15.699 20.3169C15.3104 20.6967 14.6896 20.6967 14.301 20.3169L11.6877 17.7628Z" fill="#E04F1A"/>
+                            </svg>
+                        </td>
+                        <td class=" operation__td operation__client">
+                            <p class="operation__text">Роман Мельников</p>
+                            <p class="operation__desc operation__desc--light">
+                                Со счёта:
+                                <span class="operation__desc
+                                operation__desc--black">
+                                    monobank
+                                </span>
+                            </p>
+                        </td>
+                        <td class="operation__td operation__name">
+                            <p class="operation__text">ИП Eltron</p>
+                            <p class="operation__desc operation__desc--light">
+                                Зарплата сотрудникам
+                            </p>
+                        </td>
+                        <td class="operation__td operation__comment">
+                            <p class="operation__text operation__text--underline">Аванс Июль
+                            </p>
+                        </td>
+                        <td class="operation__td operation__status">
+                            <div class="status">
+                                <p class="status__text">
+                                    Оплачено
+                                </p>
+                            </div>
+                        </td>
+                        <td class="operation__td operation__sum">
+                            <p class="sum sum--outgo">
+                                -56 000 ₴
+                            </p>
+                        </td>
+                    </tr>
+                    <tr class="operation">
+                        <td class="operation__td operation__icon"><svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="30" height="30" rx="8" fill="#D7EAE3"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M18.3123 12.2372C18.6895 12.6058 18.6895 13.2127 18.3123 13.5814C17.9471 13.9383 17.3637 13.9383 16.9985 13.5814L15.9508 12.5574L15.9508 20.0492C15.9508 20.5743 15.5251 21 15 21C14.4749 21 14.0492 20.5743 14.0492 20.0492L14.0492 12.5574L13.0015 13.5814C12.6363 13.9383 12.0529 13.9383 11.6877 13.5814C11.3105 13.2127 11.3105 12.6058 11.6877 12.2372L14.301 9.6831C14.6896 9.30333 15.3104 9.30332 15.699 9.6831L18.3123 12.2372Z" fill="#167951"/>
+                        </svg>
+                        </td>
+                        <td class="operation__td operation__client">
+                            <p class="operation__text">ООО «Кранкомплект»</p>
+                            <p class="operation__desc operation__desc--light">
+                                Со счёта:
+                                <span class="operation__desc
+                                operation__desc--black">
+                                    monobank
+                                </span>
+                            </p>
+                        </td>
+                        <td class="operation__td operation__name">
+                            <p class="operation__text">Сайт Кранкомплект</p>
+                            <p class="operation__desc operation__desc--light">
+                                Разработка
+                            </p>
+                        </td>
+                        <td class="operation__td operation__comment">
+                            <p class="operation__text operation__text--underline">Аванс за разработку
+                            </p>
+                        </td>
+                        <td class="operation__td operation__status">
+                            <div class="status">
+                                <p class="status__text">
+                                    Оплачено
+                                </p>
+                            </div>
+                        </td>
+                        <td class="operation__td operation__sum">
+                            <p class="sum sum--income">
+                                +170 000 ₴
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+                <div class="day__bottom">
+                    <button class="day__button day__button--secondary">
+                        Копировать операцию
+                        <span class="day__button-icon">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 3L3 11H5.5H8V13H5.5H3C1.89543 13 1 12.1046 1 11V3C1 1.89543 1.89543 1 3 1H5.5H8C9.10457 1 10 1.89543 10 3H8H5.5H3Z" fill="#7F7F7F"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M13 5H8L8 13H13V5ZM8 3C6.89543 3 6 3.89543 6 5V13C6 14.1046 6.89543 15 8 15H13C14.1046 15 15 14.1046 15 13V5C15 3.89543 14.1046 3 13 3H8Z" fill="#7F7F7F"/>
+</svg>
+                    </span>
+                    </button>
+                </div>
+            </div>
+            <div class="day">
+                <div class="day__wrapper">
+                    <h2 class="day__caption">Вчера, 9 июля</h2>
+                    <button class="day__button day__button--primary">
+                        Добавить
+                        <span class="day__button-icon">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4 9.23077C4 9.6556 4.44772 10 5 10C5.55229 10 6 9.6556 6 9.23077V6H9.23077C9.6556 6 10 5.55228 10 5C10 4.44772 9.6556 4 9.23077 4H6V0.769231C6 0.344396 5.55228 0 5 0C4.44771 0 4 0.344396 4 0.769231L4 4H0.769231C0.344396 4 0 4.44772 0 5C0 5.55228 0.344396 6 0.769231 6H4L4 9.23077Z" fill="#B2B2B2"/>
+</svg>
+                        </span>
+                    </button>
+                </div>
+                <hr class="hr day__hr">
+                <table cellpadding="0" cellspacing="0">
+                    <tr class="operation">
+                        <td class="operation__td operation__icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="30" height="30" rx="8" fill="#D7EAE3"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M18.3123 12.2372C18.6895 12.6058 18.6895 13.2127 18.3123 13.5814C17.9471 13.9383 17.3637 13.9383 16.9985 13.5814L15.9508 12.5574L15.9508 20.0492C15.9508 20.5743 15.5251 21 15 21C14.4749 21 14.0492 20.5743 14.0492 20.0492L14.0492 12.5574L13.0015 13.5814C12.6363 13.9383 12.0529 13.9383 11.6877 13.5814C11.3105 13.2127 11.3105 12.6058 11.6877 12.2372L14.301 9.6831C14.6896 9.30333 15.3104 9.30332 15.699 9.6831L18.3123 12.2372Z" fill="#167951"/>
+                        </svg>
+                        </td>
+                        <td class="operation__td operation__client">
+                            <p class="operation__text">Роман Мельников</p>
+                            <p class="operation__desc operation__desc--light">
+                                Со счёта:
+                                <span class="operation__desc operation__desc--black">
+                                    monobank
+                                </span>
+                            </p>
+                        </td>
+                        <td class="operation__td operation__name">
+                            <p class="operation__text">Обучение сотрудников</p>
+                            <p class="operation__desc operation__desc--light">
+                                Расходы на офис
+                            </p>
+                        </td>
+                        <td class="operation__td operation__comment">
+                            <p class="operation__text operation__text--underline">Оплата обучения
+                            </p>
+                        </td>
+                        <td class="operation__td operation__status">
+                            <div class="status">
+                                <p class="status__text">
+                                    Оплачено
+                                </p>
+                            </div>
+                        </td>
+                        <td class="operation__td operation__sum">
+                            <p class="sum sum--income">
+                                -8 000 ₴
+                            </p>
+                        </td>
+                    </tr>
+                    <tr class="operation">
+                        <td class="operation__td operation__icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="#D7EAE3"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.3123 12.2372C18.6895 12.6058 18.6895 13.2127 18.3123 13.5814C17.9471 13.9383 17.3637 13.9383 16.9985 13.5814L15.9508 12.5574L15.9508 20.0492C15.9508 20.5743 15.5251 21 15 21C14.4749 21 14.0492 20.5743 14.0492 20.0492L14.0492 12.5574L13.0015 13.5814C12.6363 13.9383 12.0529 13.9383 11.6877 13.5814C11.3105 13.2127 11.3105 12.6058 11.6877 12.2372L14.301 9.6831C14.6896 9.30333 15.3104 9.30332 15.699 9.6831L18.3123 12.2372Z" fill="#167951"/>
+                            </svg>
+                        </td>
+                        <td class=" operation__td operation__client">
+                            <p class="operation__text">ИП Бирюков Михаил Алексеевич </p>
+                            <p class="operation__desc operation__desc--light">
+                                Со счёта:
+                                <span class="operation__desc
+                                operation__desc--black">
+                                    monobank
+                                </span>
+                            </p>
+                        </td>
+                        <td class="operation__td operation__name">
+                            <p class="operation__text">Сайт Volkswagen</p>
+                            <p class="operation__desc operation__desc--light">
+                                Продвижение
+                            </p>
+                        </td>
+                        <td class="operation__td operation__comment">
+                            <p class="operation__text operation__text--underline">
+                                Оплата за продвижение Google Adwords июнь-июль
+                            </p>
+                        </td>
+                        <td class="operation__td operation__status">
+                            <div class="status">
+                                <p class="status__text">
+                                    Оплачено
+                                </p>
+                            </div>
+                        </td>
+                        <td class="operation__td operation__sum">
+                            <p class="sum sum--outgo">
+                                +21 239 ₴
+                            </p>
+                        </td>
+                    </tr>
+                    <tr class="operation">
+                        <td class="operation__td operation__icon"><svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="30" height="30" rx="8" fill="#D7EAE3"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M18.3123 12.2372C18.6895 12.6058 18.6895 13.2127 18.3123 13.5814C17.9471 13.9383 17.3637 13.9383 16.9985 13.5814L15.9508 12.5574L15.9508 20.0492C15.9508 20.5743 15.5251 21 15 21C14.4749 21 14.0492 20.5743 14.0492 20.0492L14.0492 12.5574L13.0015 13.5814C12.6363 13.9383 12.0529 13.9383 11.6877 13.5814C11.3105 13.2127 11.3105 12.6058 11.6877 12.2372L14.301 9.6831C14.6896 9.30333 15.3104 9.30332 15.699 9.6831L18.3123 12.2372Z" fill="#167951"/>
+                        </svg>
+                        </td>
+                        <td class="operation__td operation__client">
+                            <p class="operation__text">ООО «Кранкомплект»</p>
+                            <p class="operation__desc operation__desc--light">
+                                Со счёта:
+                                <span class="operation__desc
+                                operation__desc--black">
+                                    monobank
+                                </span>
+                            </p>
+                        </td>
+                        <td class="operation__td operation__name">
+                            <p class="operation__text">Сайт Кранкомплект</p>
+                            <p class="operation__desc operation__desc--light">
+                                Разработка
+                            </p>
+                        </td>
+                        <td class="operation__td operation__comment">
+                            <p class="operation__text operation__text--underline">Аванс за разработку
+                            </p>
+                        </td>
+                        <td class="operation__td operation__status">
+                            <div class="status">
+                                <p class="status__text">
+                                    Оплачено
+                                </p>
+                            </div>
+                        </td>
+                        <td class="operation__td operation__sum">
+                            <p class="sum sum--income">
+                                +170 000 ₴
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+                <div class="day__bottom">
+                    <button class="day__button day__button--secondary">
+                        Копировать операцию
+                        <span class="day__button-icon">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 3L3 11H5.5H8V13H5.5H3C1.89543 13 1 12.1046 1 11V3C1 1.89543 1.89543 1 3 1H5.5H8C9.10457 1 10 1.89543 10 3H8H5.5H3Z" fill="#7F7F7F"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M13 5H8L8 13H13V5ZM8 3C6.89543 3 6 3.89543 6 5V13C6 14.1046 6.89543 15 8 15H13C14.1046 15 15 14.1046 15 13V5C15 3.89543 14.1046 3 13 3H8Z" fill="#7F7F7F"/>
+</svg>
+                    </span>
+                    </button>
+                </div>
+            </div>
+        </main>
+        <aside class="sidebar">
+            <div class="sidebar__container">
+                <h2 class="sidebar__title">Все деньги</h2>
+                <div class="accounts">
+                    <div class="accounts__container">
+                        <h3 class="accounts__total">738 801 ₴</h3>
+                        <ul class="accounts__currency currency-list">
+                            <li class="currency-list__item">546 568 ₴</li>
+                            <li class="currency-list__item">8 797 $ <span class="currency-list__item-secondary">(237 233 ₴)</span></li>
+                        </ul>
+                    </div>
+                    <hr class="hr">
+                    <table class="storage-list">
+                        <tr>
+                            <td class="storage-list__item-name">monobank</td>
+                            <td class="storage-list__item-sum">312 471 ₴</td>
+                        </tr>
+                        <tr>
+                            <td class="storage-list__item-name">monobank, $</td>
+                            <td class="storage-list__item-sum">8 797 $</td>
+                        </tr>
+                        <tr>
+                            <td class="storage-list__item-name">Касса</td>
+                            <td class="storage-list__item-sum">234 097 ₴</td>
+                        </tr>
+                    </table>
+                </div>
+                <ul class="sidebar__menu navigation-list">
+                    <li class="navigation-list__item">
+                        <button class="navigation-button navigation-button--current">
+                            <svg class="navigation-button__icon" width="14" height="16" viewBox="0 0 14 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 1.00002C4.10948 0.609492 3.47631 0.609492 3.08579 1.00002L0.292893 3.79291C-0.0976314 4.18343 -0.0976307 4.8166 0.292894 5.20712L3.08579 8.00002C3.47631 8.39054 4.10948 8.39054 4.5 8.00002C4.89052 7.60949 4.89052 6.97633 4.5 6.5858L3.41421 5.50002H11.5C12.0523 5.50002 12.5 5.0523 12.5 4.50002C12.5 3.94773 12.0523 3.50002 11.5 3.50002H3.41421L4.5 2.41423C4.89052 2.0237 4.89052 1.39054 4.5 1.00002ZM8.99994 15C9.39046 15.3905 10.0236 15.3905 10.4142 15L13.207 12.2071C13.5976 11.8166 13.5976 11.1834 13.207 10.7929L10.4142 7.99999C10.0236 7.60946 9.39046 7.60946 8.99994 7.99999C8.60942 8.39051 8.60942 9.02368 8.99994 9.4142L10.0857 10.5L1.99994 10.5C1.44766 10.5 0.99994 10.9477 0.999941 11.5C0.999941 12.0523 1.44766 12.5 1.99994 12.5L10.0857 12.5L8.99994 13.5858C8.60942 13.9763 8.60942 14.6095 8.99994 15Z" />
+                            </svg>
+                            Операции
+                        </button>
+                    </li>
+                    <li class="navigation-list__item">
+                        <button class="navigation-button">
+                            <svg class="navigation-button__icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M15 2.07692C15 1.48216 14.5523 1 14 1C13.4477 1 13 1.48216 13 2.07692V12.9231C13 13.5178 13.4477 14 14 14C14.5523 14 15 13.5178 15 12.9231L15 2.07692ZM7 4.07692C7 3.48216 6.55228 3 6 3C5.44772 3 5 3.48216 5 4.07692L5 12.9231C5 13.5178 5.44771 14 6 14C6.55228 14 7 13.5178 7 12.9231L7 4.07692ZM3 8.07692C3 7.48216 2.55228 7 2 7C1.44772 7 1 7.48216 1 8.07692V12.9231C1 13.5178 1.44771 14 2 14C2.55228 14 3 13.5178 3 12.9231L3 8.07692ZM10 5C10.5523 5 11 5.48216 11 6.07692L11 12.9231C11 13.5178 10.5523 14 10 14C9.44771 14 9 13.5178 9 12.9231L9 6.07692C9 5.48216 9.44772 5 10 5Z" />
+                            </svg>
+                            Отчеты
+                        </button>
+                    </li>
+                    <li class="navigation-list__item">
+                        <button class="navigation-button">
+                            <svg class="navigation-button__icon" width="14" height="14" viewBox="0 0 14 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6 4C6 5.10457 5.10457 6 4 6C2.89543 6 2 5.10457 2 4C2 2.89543 2.89543 2 4 2C5.10457 2 6 2.89543 6 4ZM7 6.64582C6.88942 6.77111 6.77111 6.88942 6.64582 7C6.77111 7.11058 6.88942 7.22889 7 7.35418C7.11058 7.22889 7.22889 7.11058 7.35418 7C7.22889 6.88942 7.11058 6.77111 7 6.64582ZM12.6458 7C13.4762 6.26706 14 5.19469 14 4C14 1.79086 12.2091 0 10 0C8.80531 0 7.73295 0.523755 7 1.35418C6.26706 0.523755 5.19469 0 4 0C1.79086 0 0 1.79086 0 4C0 5.19469 0.523755 6.26706 1.35418 7C0.523755 7.73295 0 8.80531 0 10C0 12.2091 1.79086 14 4 14C5.19469 14 6.26706 13.4762 7 12.6458C7.73295 13.4762 8.80531 14 10 14C12.2091 14 14 12.2091 14 10C14 8.80531 13.4762 7.73295 12.6458 7ZM10 8C8.89543 8 8 8.89543 8 10C8 11.1046 8.89543 12 10 12C11.1046 12 12 11.1046 12 10C12 8.89543 11.1046 8 10 8ZM6 10C6 8.89543 5.10457 8 4 8C2.89543 8 2 8.89543 2 10C2 11.1046 2.89543 12 4 12C5.10457 12 6 11.1046 6 10ZM10 6C8.89543 6 8 5.10457 8 4C8 2.89543 8.89543 2 10 2C11.1046 2 12 2.89543 12 4C12 5.10457 11.1046 6 10 6Z" />
+                            </svg>
+                            Контрагенты
+                        </button>
+                    </li>
+                    <li class="navigation-list__item">
+                        <button class="navigation-button">
+                            <svg class="navigation-button__icon" width="15" height="16" viewBox="0 0 15 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.62934 1.8928C7.95156 1.98701 8.24487 2.16082 8.48224 2.3982L10.0849 4.00087L10.7929 3.29289C11.1834 2.90237 11.8166 2.90237 12.2071 3.29289C12.5976 3.68342 12.5976 4.31658 12.2071 4.70711L11.4991 5.41508L12.9602 6.87612C13.1975 7.11349 13.3713 7.40681 13.4656 7.72902L14.2967 10.5715C14.8778 12.5586 12.4268 14.0109 10.9629 12.547L7.66505 9.24916L1.70711 15.2071C1.31658 15.5976 0.683417 15.5976 0.292893 15.2071C-0.0976311 14.8166 -0.0976311 14.1834 0.292893 13.7929L6.25084 7.83494L2.81136 4.39546C1.34741 2.93152 2.79978 0.480583 4.78689 1.06164L7.62934 1.8928ZM9.30699 6.05137L7.06803 3.81241L4.22558 2.98125L12.3771 11.1328L11.5459 8.29033L9.30699 6.05137Z" />
+                            </svg>
+                            Проекты
+                        </button>
+                    </li>
+                    <li class="navigation-list__item">
+                        <button class="navigation-button">
+                            <svg class="navigation-button__icon" width="14" height="12" viewBox="0 0 14 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.482155 0 1.07692 0H12.9231C13.5178 0 14 0.447715 14 1C14 1.55228 13.5178 2 12.9231 2H1.07692C0.482155 2 0 1.55228 0 1ZM0 6C0 5.44772 0.482155 5 1.07692 5H12.9231C13.5178 5 14 5.44772 14 6C14 6.55228 13.5178 7 12.9231 7H1.07692C0.482155 7 0 6.55228 0 6ZM1.07692 10C0.482155 10 0 10.4477 0 11C0 11.5523 0.482155 12 1.07692 12H12.9231C13.5178 12 14 11.5523 14 11C14 10.4477 13.5178 10 12.9231 10H1.07692Z" />
+                            </svg>
+                            Статьи расходов
+                        </button>
+                    </li>
+                    <li class="navigation-list__item">
+                        <button class="navigation-button">
+                            <svg class="navigation-button__icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8" cy="5" r="4" stroke="#EEEEEE" stroke-width="2"/>
+                                <path d="M14 16C14 12.6863 11.3137 10 8 10C4.68629 10 2 12.6863 2 16"/>
+                            </svg>
+                            Сотрудники
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="user">
+                <div class="user__container">
+                    <img class="user__avatar" src="src/img/avatar.png"/>
+                    <div class="user__desc">
+                        <p class="user__name">Сергей Василенко</p>
+                        <p class="user__info">Newage Systems</p>
+                    </div>
+                </div>
+                <div class="user__buttons-list">
+                    <button class="user__button">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1 3C1 2.44772 1.48215 2 2.07692 2H13.9231C14.5178 2 15 2.44772 15 3C15 3.55228 14.5178 4 13.9231 4H2.07692C1.48215 4 1 3.55228 1 3Z" fill="#2E2E2E"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1 8C1 7.44772 1.48215 7 2.07692 7H13.9231C14.5178 7 15 7.44772 15 8C15 8.55228 14.5178 9 13.9231 9H2.07692C1.48215 9 1 8.55228 1 8Z" fill="#2E2E2E"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5 10C4.44772 10 4 9.51785 4 8.92308L4 7.07692C4 6.48215 4.44772 6 5 6C5.55228 6 6 6.48215 6 7.07692L6 8.92308C6 9.51784 5.55228 10 5 10Z" fill="#2E2E2E"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11 15C10.4477 15 10 14.5178 10 13.9231L10 12.0769C10 11.4822 10.4477 11 11 11C11.5523 11 12 11.4822 12 12.0769L12 13.9231C12 14.5178 11.5523 15 11 15Z" fill="#2E2E2E"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9 5C8.44772 5 8 4.51785 8 3.92308L8 2.07692C8 1.48215 8.44772 0.999999 9 0.999999C9.55228 0.999999 10 1.48215 10 2.07692L10 3.92308C10 4.51784 9.55228 5 9 5Z" fill="#2E2E2E"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1 13C1 12.4477 1.48215 12 2.07692 12H13.9231C14.5178 12 15 12.4477 15 13C15 13.5523 14.5178 14 13.9231 14H2.07692C1.48215 14 1 13.5523 1 13Z" fill="#2E2E2E"/>
+                        </svg>
+                    </button>
+                    <button class="user__button">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="7" stroke="#2E2E2E" stroke-width="2"/>
+                            <path d="M7.2719 8.46784C7.2719 8.65497 7.31868 8.8421 7.40056 9.02924H8.73389C8.72219 8.93567 8.7105 8.8538 8.7105 8.78363C8.7105 8.46784 8.88593 8.31579 9.52921 7.75439C10.2193 7.1579 10.5 6.70175 10.5 6.04678C10.5 4.83041 9.49412 4 8.19588 4C7.07307 4 6.21927 4.60819 5.89178 5.77778L7.17833 6.33918C7.40056 5.74269 7.72804 5.45029 8.14909 5.45029C8.57015 5.45029 8.88593 5.74269 8.88593 6.16374C8.88593 6.52632 8.72219 6.71345 8.19588 7.1462C7.57599 7.64912 7.2719 8.03509 7.2719 8.46784ZM7.01459 10.9123C7.01459 11.5322 7.49412 12 8.11401 12C8.73389 12 9.20172 11.5322 9.20172 10.9123C9.20172 10.3041 8.73389 9.82456 8.11401 9.82456C7.49412 9.82456 7.01459 10.3041 7.01459 10.9123Z" fill="#2E2E2E"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </aside>
+        <button class="button-primary button-primary--add">
+            <svg width="14" height="14" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 9.23077C4 9.6556 4.44772 10 5 10C5.55229 10 6 9.6556 6 9.23077V6H9.23077C9.6556 6 10 5.55228 10 5C10 4.44772 9.6556 4 9.23077 4H6V0.769231C6 0.344396 5.55228 0 5 0C4.44771 0 4 0.344396 4 0.769231L4 4H0.769231C0.344396 4 0 4.44772 0 5C0 5.55228 0.344396 6 0.769231 6H4L4 9.23077Z" fill="#B2B2B2"/>
+            </svg>
+        </button>
+        <button class="button-primary button-primary--delete">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g opacity="0.2">
+                    <path d="M5.95833 1.92502C5.95833 1.65759 6.06457 1.40112 6.25367 1.21202C6.44277 1.02292 6.69924 0.916687 6.96667 0.916687H15.0333C15.3008 0.916687 15.5572 1.02292 15.7463 1.21202C15.9354 1.40112 16.0417 1.65759 16.0417 1.92502C16.0417 2.19245 15.9354 2.44892 15.7463 2.63802C15.5572 2.82712 15.3008 2.93335 15.0333 2.93335H6.96667C6.69924 2.93335 6.44277 2.82712 6.25367 2.63802C6.06457 2.44892 5.95833 2.19245 5.95833 1.92502ZM21.0833 5.95835C21.0833 6.22578 20.9771 6.48225 20.788 6.67135C20.5989 6.86045 20.3424 6.96669 20.075 6.96669H18.0583V17.05C18.0583 18.1197 17.6334 19.1456 16.877 19.902C16.1206 20.6584 15.0947 21.0834 14.025 21.0834H7.975C6.90529 21.0834 5.8794 20.6584 5.123 19.902C4.36661 19.1456 3.94167 18.1197 3.94167 17.05V6.96669H1.925C1.65757 6.96669 1.4011 6.86045 1.212 6.67135C1.0229 6.48225 0.916668 6.22578 0.916668 5.95835C0.916668 5.69093 1.0229 5.43445 1.212 5.24535C1.4011 5.05625 1.65757 4.95002 1.925 4.95002H20.075C20.3424 4.95002 20.5989 5.05625 20.788 5.24535C20.9771 5.43445 21.0833 5.69093 21.0833 5.95835ZM16.0417 6.96669H5.95833V17.05C5.95833 17.5849 6.1708 18.0978 6.549 18.476C6.9272 18.8542 7.44015 19.0667 7.975 19.0667H14.025C14.5599 19.0667 15.0728 18.8542 15.451 18.476C15.8292 18.0978 16.0417 17.5849 16.0417 17.05V6.96669ZM8.98333 17.05C9.25076 17.05 9.50723 16.9438 9.69633 16.7547C9.88543 16.5656 9.99167 16.3091 9.99167 16.0417V9.99169C9.99167 9.72426 9.88543 9.46779 9.69633 9.27869C9.50723 9.08959 9.25076 8.98335 8.98333 8.98335C8.71591 8.98335 8.45943 9.08959 8.27033 9.27869C8.08124 9.46779 7.975 9.72426 7.975 9.99169V16.0417C7.975 16.3091 8.08124 16.5656 8.27033 16.7547C8.45943 16.9438 8.71591 17.05 8.98333 17.05ZM13.0167 17.05C13.2841 17.05 13.5406 16.9438 13.7297 16.7547C13.9188 16.5656 14.025 16.3091 14.025 16.0417V9.99169C14.025 9.72426 13.9188 9.46779 13.7297 9.27869C13.5406 9.08959 13.2841 8.98335 13.0167 8.98335C12.7492 8.98335 12.4928 9.08959 12.3037 9.27869C12.1146 9.46779 12.0083 9.72426 12.0083 9.99169V16.0417C12.0083 16.3091 12.1146 16.5656 12.3037 16.7547C12.4928 16.9438 12.7492 17.05 13.0167 17.05Z" fill="#2E2E2E"/>
+                </g>
+            </svg>
+        </button>
+        <script type="text/javascript" src="dist/bundle.js"></script>
+    </body>
+</html>
